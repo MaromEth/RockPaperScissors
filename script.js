@@ -1,10 +1,15 @@
-let getComputerChoice = function(){
-    let choiceArray = ['rock', 'paper', 'scissors']
-    let computerChoice = Math.floor(Math.random()*3)
-    return choiceArray[computerChoice]
-}
+const buttons = document.querySelectorAll("button")
 
-let playRound = function(playerSelection, computerSelection){
+
+
+
+let choiceArray = ['rock', 'paper', 'scissors']
+
+let playRound = function(playerSelection){
+    let computerChoice = Math.floor(Math.random()*3)
+    let computerSelection = choiceArray[computerChoice]
+    console.log(computerSelection)
+    console.log(playerSelection)
     if(playerSelection === 'rock'){
         if (computerSelection === 'rock'){
             return "You both chose rock, you tied!"
@@ -33,8 +38,19 @@ let playRound = function(playerSelection, computerSelection){
     
 
 }
+function logText(e) {
+    return this.id
+}
+buttons.forEach(button =>{
+    button.addEventListener("click", function(e) {
+    console.log(playRound(this.id))
+})
+
+});
+/*
 let game = function(){
-    let humanScore = 0;
+
+    /*let humanScore = 0;
     let computerScore = 0;
     for(let i=0; i<5; i++){
         let playerSelection = prompt('Please select rock, paper, or scissors')
@@ -62,6 +78,7 @@ let game = function(){
         console.log(`The score was ${humanScore} you, ${computerScore} computer. You tied.`)
     }
     
+   console.log(playerSelection)
 }
 
-game()
+game() */
